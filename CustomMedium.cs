@@ -14,9 +14,12 @@ namespace Program
 		public override string Author => "Ashforest";
 		public override string Description => 
 			"This plugin is copied from Miffyli where it is possible to select " +
-			"what is dropped from the player as if he is in mediumcore";
+			"what is dropped from the player as if he is in mediumcore. " +
+			"This uses a JSON file that stores the items as IDs and Names, " +
+			"a command is provided to add or delete items from the list and it only works for classic (softcore) mode, " +
+			"others will have nothing different happen to them";
 		public override string Name => "CustomMedium";
-		public override Version Version => new(1,4,1);
+		public override Version Version => new(1,4,2);
 
 		private static ItemDropConfig config = new();
 
@@ -49,7 +52,7 @@ namespace Program
 			}
 		}
 
-		private void OnPlayerDeath(TSPlayer player)
+		private static void OnPlayerDeath(TSPlayer player)
 		{
 			int size = player.TPlayer.inventory.Length;
 
@@ -62,8 +65,7 @@ namespace Program
 				int ItemIndex = Item.NewItem(
 					null, (int)player.X, (int)player.Y,
 					player.TPlayer.width, player.TPlayer.height,
-					cur.netID, cur.stack, false, cur.prefix,
-					false, false);
+					cur.netID, cur.stack, pfix: cur.prefix);
 				
 				NetMessage.SendData((int)PacketTypes.ItemDrop, player.Index, -1, Terraria.Localization.NetworkText.FromFormattable(""), ItemIndex);
 				player.TPlayer.inventory[i] = new();
@@ -82,21 +84,15 @@ namespace Program
 			
 			if (args.Parameters.Count == 1)
 			{
-				if (args.Parameters[0] == "help")
+				if (args.Parameters[0].ToLowerInvariant() == "help")
 				{
-					if (args.Player != null)
-						args.Player.SendMessage("Choose any one of these options\n" +
-							"add: To add an item into the drop list\n" +
-							"del: To remove an item from the drop list\n" +
-							"check: To get a full list of the items in the drop list", Color.Green);
-					else
-						Console.WriteLine("\nChoose any one of these options\n" +
-							"add: To add an item into the drop list\n" +
-							"del: To remove an item from the drop list\n" +
+					RuntimeLogging(args.Player, Color.Green, "Choose any one of these options\n" +
+							"add: To add an item into the drop list (written as /mediumcustom add [ItemID])\n" +
+							"del: To remove an item from the drop list (written as /mediumcustom del [ItemID])\n" +
 							"check: To get a full list of the items in the drop list");
 					return;
 				}
-				else if (args.Parameters[0] == "check")
+				else if (args.Parameters[0].ToLowerInvariant() == "check")
 				{
 					if (args.Player != null)
 					{
@@ -125,7 +121,7 @@ namespace Program
 			else if (args.Parameters.Count == 2)
 			{
 
-				if (args.Parameters[0] == "add")
+				if (args.Parameters[0].ToLowerInvariant() == "add")
 				{
 					if (int.TryParse(args.Parameters[1], out int ItemId))
 					{
@@ -145,7 +141,7 @@ namespace Program
 					RuntimeLogging(args.Player, Color.Red,"Invalid Item ID");
 
 				}
-				else if (args.Parameters[0] == "del")
+				else if (args.Parameters[0].ToLowerInvariant() == "del")
 				{
 					if (int.TryParse(args.Parameters[1], out int ItemID))
 					{
@@ -172,7 +168,7 @@ namespace Program
 
 		}
 
-		private void RuntimeLogging(TSPlayer player, Color color, string msg = "Invalid option for the custom medium command, use the option help for more info\n")
+		private static void RuntimeLogging(TSPlayer player, Color color, string msg = "Invalid option for the custom medium command, use the option help for more info\n")
 		{
 			if (player != null)
 				player.SendMessage(msg, color);
