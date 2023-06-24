@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\Program\\Program.csproj": {}
+    "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\CustomMediumcore\\Program.csproj": {}
   },
   "projects": {
-    "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\Program\\Program.csproj": {
+    "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\CustomMediumcore\\Program.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\Program\\Program.csproj",
+        "projectUniqueName": "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\CustomMediumcore\\Program.csproj",
         "projectName": "Program",
-        "projectPath": "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\Program\\Program.csproj",
+        "projectPath": "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\CustomMediumcore\\Program.csproj",
         "packagesPath": "C:\\Users\\Ashforest\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\Program\\obj\\",
+        "outputPath": "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\CustomMediumcore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ashforest\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -69,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

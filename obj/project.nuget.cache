@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I1gjnR0B5BhqPHA7fUVzcnPAtqCd6042B341+OzW5dXKfl6B2K6TmR99NBV1WmNMMNNg8TaBupBpjwa9/EpB9Q==",
+  "dgSpecHash": "MqkUq2EhLmZUpb5LLOuqb3SfSTfz/nBJlf5fRaLQaWVL6MWH5Dv47jPmbIs/cPHCSEcuKNVXYHm/XtfKweU/gA==",
   "success": true,
-  "projectFilePath": "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\Program\\Program.csproj",
+  "projectFilePath": "D:\\Visual Studio\\Projects\\C#\\CustomMedium\\CustomMediumcore\\Program.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ashforest\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Ashforest\\.nuget\\packages\\gettext.net\\1.7.14\\gettext.net.1.7.14.nupkg.sha512",
